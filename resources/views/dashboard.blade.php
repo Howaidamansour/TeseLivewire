@@ -14,4 +14,8 @@
             </div>
         </div>
     </div>
+
+    <div>
+        <livewire:contact-us />
+    </div>
 </x-app-layout>

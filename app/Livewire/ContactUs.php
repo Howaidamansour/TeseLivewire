@@ -43,5 +43,6 @@ class ContactUs extends Component
         // dd($validatedData);
         $row = CU::create($validatedData);
         session()->flash('message', 'Message successfully saved.');
+        $this->reset();
     }
 }

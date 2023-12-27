@@ -1,7 +1,13 @@
 
 
   <form wire:submit.prevent="submit">
-  
+  <div>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+    </div>
     <label for="fname">Name</label>
     <input wire:model="name" type="text" id="name" name="name" placeholder="Your name..">
     @error("name")
