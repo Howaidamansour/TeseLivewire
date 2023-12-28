@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\ContactUs as CU;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,15 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-
+Route::prefix('users')->group(function () {
+    Route::get('', [UserController::class, 'index']);
+});
 
 Route::prefix('livewire')->group(function () {
     Route::get('contact-us', CU::class );
 });
+
+
 
 
 
