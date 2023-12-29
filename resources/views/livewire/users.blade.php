@@ -6,6 +6,9 @@
             </div>
         @endif
     </div> 
+
+
+
 <div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -19,28 +22,31 @@
         <form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Name:</label>
-            <input wire:model="name" type="text" class="form-control" id="name" name="name">
-            @error('name')
-            {{$message}}
-            @enderror
+            <input wire:model="form.name" type="text" class="form-control" id="name" name="name">
+           
+            <div>
+        @error('form.name') <span class="error">{{ $message }}</span> @enderror
+        </div>
 
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Email:</label>
-            <input wire:model="email" type="text" class="form-control" id="email" name="email" >
+            <input wire:model="form.email" type="text" class="form-control" id="email" name="email" >
 
-            @error('email')
-            {{$message}}
-            @enderror
+           
+            <div>
+        @error('form.email') <span class="error">{{ $message }}</span> @enderror
+    </div>
           </div>
 
           <div class="form-group">
             <label for="message-text" class="col-form-label">Password:</label>
-            <input wire:model="password" type="password" class="form-control" id="password" name = "password" >
+            <input wire:model="form.password" type="password" class="form-control" id="password" name = "password" >
 
-            @error('password')
-            {{$message}}
-            @enderror
+            
+            <div>
+        @error('form.password') <span class="error">{{ $message }}</span> @enderror
+    </div>
           </div>
 
 
@@ -54,6 +60,13 @@
   </div>
 </div>
 
+
+
+
+
+
+
+
 <div>
 <table class="table">
   <thead class="thead-light">
@@ -65,17 +78,19 @@
     </tr>
   </thead>
   <tbody>
-    
-    
+    @foreach($users as $user)
     <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
+      <th scope="row">{{$loop->iteration}}</th>
+      <td>{{$user->name}}</td>
+      <td>{{$user->email}}</td>
       <td>
-        <button type="button" class="btn btn-success">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button wire:click.prevent="edit" type="button" class="btn btn-success">Edit</button>
+        <button wire:click="delete" type="button" class="btn btn-danger">Delete</button>
       </td>
     </tr>
+    @endforeach
+    
+   
   </tbody>
 </table>
 </div>
