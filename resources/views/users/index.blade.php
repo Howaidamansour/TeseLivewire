@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-       
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-       @livewireStyles
- 
+    <title>Todo App template</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-<br>
- 
-
-<br><br>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-user">Add User</button>
-
-
-<br>
-<br>
-<livewire:users />
-
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
-
-@livewireScripts
-
+    <div id="head" class="flex border-blue-800 border-t-2">
+        <div class="w-full">
+            <header class="flex bg-white justify-between h-20 border-b border-b-gray-200 items-center px-6">
+                <div id="left-header" class="">
+                </div>
+                <div id="right-header" class="text-gray-800 hover:text-gray-600 space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-7 h-7">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </div>
+            </header>
+        </div>
+    </div>
+    <div id="content" class="mx-auto" style="max-width:500px;">
+       <livewire:users />
+    </div>
 
 </body>
+
 </html>

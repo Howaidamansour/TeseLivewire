@@ -25,8 +25,9 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::prefix('users')->group(function () {
-    Route::get('', [UserController::class, 'index']);
+Route::prefix('users')->as('users')->group(function () {
+    Route::get('', [UserController::class, 'index'])->name('.index');
+    Route::get('create', [UserController::class , 'create'])->name('.create');
 });
 
 Route::prefix('livewire')->group(function () {
