@@ -1,17 +1,11 @@
 <div wire:key="{{$user->id}}" class="todo mb-5 card px-5 py-6 bg-white col-span-1 border-t-2 border-blue-500 hover:shadow">
                 <div class="flex justify-between space-x-2">
                     <div class="flex items-center" >
-                    @if($editedID == $user->id)
-                    <input  wire:model.live="editedName" type="text" id="name" placeholder="Name.."
-                                class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5"
-                                value="">
-                                @error('editedName')
-                                <span class="text-red-500 text-xs mt-3 block ">{{$message}}</span>
-                            @enderror
+                
 
-                    @else
+                  
                      <h3 class="text-lg text-semibold text-gray-800">{{$user->name}}</h3>
-                    @endif
+                    
 
                     </div>
                     <div class="flex items-center space-x-2">
@@ -32,25 +26,10 @@
                     </div>
                 </div>
                 <br>
-                <!-- <div class="flex items-center" > -->
-                @if($editedID == $user->id)
-                <input wire:model.live="editedEmail" id = "email" type="text" placeholder="Email.."
-                                class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5"
-                                value="">
-                                @error('editedEmail')
-                                <span class="text-red-500 text-xs mt-3 block ">{{$message}}</span>
-                            @enderror
-                @else
+                
                  <span class="text-xs text-gray-500"> {{$user->email}} </span>
-                 @endif
+                
                 <div class="mt-3 text-xs text-gray-700">
-                    @if($editedID == $user->id)
-                                           
-                            <button wire:click="update"
-                                class="mt-3 px-4 py-2 bg-teal-500 text-white font-semibold rounded hover:bg-teal-600">Update</button>
-                            <button wire:click="cancelUpdate"
-                                class="mt-3 px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600">Cancel</button> 
-                    @endif 
-                <!-- </div> -->
+                    
 </div>
             </div>

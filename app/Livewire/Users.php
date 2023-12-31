@@ -21,32 +21,19 @@ class Users extends Component
     public $editedName;
     public $editedEmail;
 
-    // public function getRules () {
-    //     return [
-    //         'name' => 'required|string|min:3|max:100',
-    //         'editedName' => 'required|string|min:3|max:100',
-    //         'email' => 'required|email|unique:users,email,'.$this->user_id,
-    //         'editedEmail' => 'required|email|unique:users,email,'.$this->user_id,
 
-    //         // 'email' => [
-    //         //     'required',
-    //         //     'email',
-    //         //     Rule::unique('users', 'email')->ignore(function () {
-    //         //         if ($this->user_id) {
-    //         //             return $this->user_id;
-    //         //         }
-
-    //         //         return null;
-    //         //     }),
-    //         // ],
-    //         'password' => 'required|min:8'
-    //     ];
-    // }
 
    
 
     public function render()
     {
+        if ($this->editedID) {
+            $user = User::find($this->editedID);
+            $this->name = $user->name;
+            $this->email = $user->email;
+            $this->password = $user->password;
+            $this->user_id = $this->editedID;
+        }
         // dd($this->search);
         // dd(User::where('name', 'like', "%{$this->search}%")->toSql());
         return view('livewire.users', [
@@ -56,17 +43,21 @@ class Users extends Component
 
   
 
-    public function create () {
+    public function save () {
         // dd('hi');
         sleep(2);
-        $rules = $this->getRules();
+
         $validatedData = $this->validate([
             'name' => 'required|string|min:3|max:100',
             'email' => 'required|email|unique:users,email,'.$this->user_id,
             'password' => 'required|min:8',
-        ]);      
-         User::create($validatedData);
-        session()->flash('success', 'Created Successfuly');
+        ]);  
+
+        User::updateOrCreate(['id'=> $this->editedID], $validatedData);
+        
+       
+        //  User::create($validatedData);
+        session()->flash('success', 'Saved Successfuly');
         $this->reset();
 
     }

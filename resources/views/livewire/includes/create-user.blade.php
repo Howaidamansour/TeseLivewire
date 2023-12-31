@@ -40,9 +40,9 @@
                             </div>
 
 
-                            <button wire:click.prevent="create" type="submit"
-                                class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">Create
-                                +</button>
+                            <button wire:click.prevent="save" type="submit"
+                                class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">Save
+                                </button>
                                 <div wire:loading.delay.longest>
                                 <span class="text-green-500 text-xs">Sending...</span>
                                 </div>
