@@ -58,6 +58,7 @@ class Users extends Component
 
     public function create () {
         // dd('hi');
+        sleep(2);
         $rules = $this->getRules();
         $validatedData = $this->validate([
             'name' => 'required|string|min:3|max:100',
